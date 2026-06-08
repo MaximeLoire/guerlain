@@ -1,0 +1,29 @@
+{
+  "region": "Londres",
+  "nav": { "opening": "Ouverture", "collection": "The Collection", "closing": "Invitation" },
+  "hero": {
+    "eyebrow": "Maison Guerlain — Paris",
+    "title1": "Exceptional",
+    "title2": "Piece",
+    "event": "PEX London",
+    "year": "2026",
+    "tagline": "By Invitation Only",
+    "footer_right": "Private Viewing"
+  },
+  "intro": {
+    "eyebrow": "The Collection",
+    "lines": [
+      "Cette collection est en cours de préparation.",
+      "Guerlain vous invite à découvrir bientôt une sélection d'exception."
+    ]
+  },
+  "closing": {
+    "eyebrow": "PEX London 2026",
+    "heading": "Guerlain",
+    "subheading": "Paris",
+    "tagline": "An invitation to the exceptional.",
+    "footer_left": "Maison Guerlain",
+    "footer_right": "Private Presentation — Confidential"
+  },
+  "families": []
+}
