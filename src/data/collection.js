@@ -1,0 +1,284 @@
+/* =====================================================================
+   PEX BANGKOK 2026 — Exceptional Piece selection
+   Content transcribed from the official Guerlain memo.
+   Fields left undefined are intentionally omitted (not provided in source).
+   ===================================================================== */
+
+export const intro = {
+  eyebrow: "The Collection",
+  lines: [
+    "Seven houses of memory. A single obsession with the exceptional.",
+    "Each flacon is a dialogue between Guerlain's heritage and the hands of the artists, jewellers and Maisons who reimagined it —",
+    "one irreplaceable piece at a time.",
+  ],
+};
+
+export const families = [
+  {
+    id: "shalimar",
+    index: 1,
+    name: "Shalimar",
+    tagline: "The eternal love story",
+    products: [
+      {
+        id: "shalimar-90",
+        image: "/products/shalimar-90.jpg",
+        name: "Shalimar — 90th Anniversary",
+        artist: "Desrues",
+        specialty: "Parisian Maison d'art",
+        year: "2015",
+        description:
+          "Two inseparable birds, wing to wing — an emblem of the burning passion between Emperor Shah Jahan and his wife Mumtaz Mahal.",
+      },
+      {
+        id: "shalimar-100",
+        image: "/products/shalimar-100.jpg",
+        name: "Shalimar — 100th Anniversary",
+        artist: "Janaïna Milheiro",
+        specialty: "Franco-Brazilian artist",
+        year: "2025",
+        description:
+          "A meeting of arts and crafts, design and technical innovation, drawn from the gardens of Shalimar themselves.",
+        notes: ["rose", "iris", "tonka bean", "vanilla tincture", "musk", "opopanine"],
+        price: "20 000 €",
+        edition: "66 pieces worldwide",
+        volume: "1.5 L — 125 ml + 30 ml travel spray",
+      },
+    ],
+  },
+  {
+    id: "bee-bottle",
+    index: 2,
+    name: "Bee Bottle",
+    tagline: "The Maison's beloved emblem",
+    products: [
+      {
+        id: "bee-shourouk",
+        image: "/products/bee-shourouk.jpg",
+        name: "Shalimar Bee Bottle",
+        artist: "Shourouk Rhaiem",
+        specialty: "Métiers d'Art edition",
+        year: "2024",
+        description:
+          "A spectacular flacon born of Tunisian travels, 1980s pop culture and Hollywood glamour — hand-adorned with sparkling rhinestones.",
+        notes: ["bergamot", "iris", "jasmine", "rose", "vanilla", "tonka beans"],
+        price: "18 000 €",
+        edition: "58 pieces",
+        volume: "1 L",
+      },
+      {
+        id: "bee-matisse",
+        image: "/products/bee-matisse.jpg",
+        name: "The Bee Bottle",
+        artist: "Maison Matisse",
+        specialty: "Painting · Music · Perfume",
+        year: "2023",
+        description:
+          "Three arts intimately linked. Inspired by Matisse's celebrated painting Music (1939) — hand-painted in his palette, with philodendron leaves and the curved forms of a guitar.",
+        price: "16 000 €",
+        edition: "14 pieces",
+        volume: "1 L",
+      },
+      {
+        id: "bee-gonzalez",
+        image: "/products/bee-gonzalez.jpg",
+        name: "The Bee Bottle",
+        artist: "Geraldine Gonzalez",
+        specialty: "French artist-sculptress",
+        year: "2025",
+        description:
+          "A majestic moon gilded in 24-carat fine gold, crowned with three stars set from crystal pearls.",
+        price: "20 000 €",
+        edition: "64 pieces",
+        volume: "1 L · plus a unique 1.5 L piece for Shalimar's 100th anniversary",
+      },
+    ],
+  },
+  {
+    id: "quadrilobe",
+    index: 3,
+    name: "Quadrilobé Flacon",
+    tagline: "The 1908 silhouette, reimagined",
+    products: [
+      {
+        id: "quadrilobe-ufan",
+        image: "/products/quadrilobe-ufan.jpg",
+        name: "Le Flacon Quadrilobé",
+        artist: "Lee Ufan",
+        specialty: "Contemporary master",
+        year: "2024",
+        description:
+          "Complex depth held within refined simplicity — subtle, imperfectly curved gestures. The iconic 1908 flacon becomes Ufan's canvas: heritage porcelain transformed into art through artisanal fireworks.",
+        price: "50 000 €",
+        edition: "21 pieces",
+        volume: "2 L — 125 ml bottle + 30 ml atomizer + funnel",
+      },
+    ],
+  },
+  {
+    id: "heure-bleue",
+    index: 4,
+    name: "L'Heure Bleue",
+    tagline: "Paris at twilight",
+    products: [
+      {
+        id: "heure-bleue-100",
+        image: "/products/heure-bleue-100.jpg",
+        name: "L'Heure Bleue — 100th Anniversary",
+        artist: "Baccarat & Maison Gripoix",
+        specialty: "Crystal & jewellery Maisons",
+        year: "2012",
+        description:
+          "The iconic Quadrilobé bottle cast in deep, magnetic crystal blue by Baccarat's master glassmakers, its neck adorned with a sumptuous Gripoix jewel — an impression of Paris at twilight, 1912.",
+        notes: [
+          "carnation",
+          "neroli",
+          "bergamot",
+          "aniseed",
+          "iris",
+          "violet",
+          "vanilla",
+          "benzoin",
+          "tonka bean",
+        ],
+        price: "8 500 €",
+        edition: "43 pieces",
+        volume: "490 ml",
+      },
+      {
+        id: "paradis-interdit",
+        image: "/products/paradis-interdit.jpg",
+        name: "Paradis Interdit",
+        artist: "Lorenz Bäumer & Baccarat",
+        specialty: "Place Vendôme jeweller",
+        year: "2015",
+        description:
+          "A crystal bee, its wings faceted like diamonds by the celebrated Place Vendôme jeweller — a majestic homage to the House's beloved emblem.",
+      },
+    ],
+  },
+  {
+    id: "muguet",
+    index: 5,
+    name: "Muguet",
+    tagline: "The flower of returning spring",
+    products: [
+      {
+        id: "muguet-swami",
+        image: "/products/muguet-swami.jpg",
+        name: "Muguet — Millésime 2023",
+        artist: "Karen Swami & Ateliers Vermont",
+        specialty: "Ceramicist & embroiderers",
+        year: "2023",
+        description:
+          "Celebrating 170 years of the Bee Bottle. A realistic ceramic bell drawn from lily-of-the-valley, embroidered with sprigs of the flower.",
+        price: "700 €",
+        edition: "5 000 pieces",
+        volume: "125 ml + 20 ml “goutte”",
+      },
+      {
+        id: "muguet-lopez",
+        image: "/products/muguet-lopez.jpg",
+        name: "Muguet",
+        artist: "Anne Lopez",
+        specialty: "Sculptor in stucco & precious metal leaf",
+        year: "2024",
+        description:
+          "Twenty-four bells hand-sculpted from marble powder, gilded in 22-carat gold leaf with green leaves. Composed by Thierry Wasser to evoke freshly picked lily-of-the-valley.",
+        price: "750 €",
+        edition: "4 855 pieces",
+        volume: "125 ml + 30 ml",
+      },
+      {
+        id: "muguet-yann",
+        image: "/products/muguet-yann.jpg",
+        name: "Muguet",
+        artist: "Yann Philippe",
+        specialty: "Art Nouveau · AI collaboration",
+        year: "2025",
+        description:
+          "An AI-assisted reinterpretation of the Bee Bottle. An 18-carat gold structure inspired by Art Nouveau, hung with pearl-like lily-of-the-valley bells.",
+        notes: ["green notes", "jasmine", "rose"],
+        price: "790 €",
+        edition: "4 225 pieces",
+        volume: "125 ml + 30 ml",
+      },
+    ],
+  },
+  {
+    id: "bouquet",
+    index: 6,
+    name: "Bouquet de la Mariée",
+    tagline: "An imperial wedding",
+    products: [
+      {
+        id: "bouquet-ferrandis",
+        image: "/products/bouquet-ferrandis.jpg",
+        name: "Bouquet de la Mariée",
+        artist: "Philippe Ferrandis",
+        specialty: "Parisian jeweller",
+        year: "2024",
+        description:
+          "The Bee Bottle, first created in 1853 for Empress Eugénie's wedding. A handcrafted apple tree embraces the flacon in copper branches — one of its 29 golden flowers detaches to be worn as a brooch.",
+        notes: ["orange blossom", "sweet almond", "white musk", "vanilla", "incense"],
+        price: "25 000 €",
+        edition: "3 unique numbered pieces",
+        volume: "1.5 L",
+      },
+    ],
+  },
+  {
+    id: "cherry-blossom",
+    index: 7,
+    name: "Cherry Blossom",
+    tagline: "The spirit of Hanami",
+    products: [
+      {
+        id: "cherry-ferrandis",
+        image: "/products/cherry-ferrandis.jpg",
+        name: "Cherry Blossom",
+        artist: "Philippe Ferrandis",
+        specialty: "Parisian jeweller",
+        year: "2024",
+        description:
+          "An ode to the Japanese Hanami. Two pale pink enamelled Sakura flowers detach as jewellery, set with 24-carat gold details and sparkling crystals — hand-crafted in the Ferrandis Paris ateliers.",
+        notes: ["rose", "green tea", "jasmine"],
+        price: "790 €",
+        edition: "4 005 pieces",
+        volume: "125 ml + 30 ml",
+      },
+      {
+        id: "cherry-song",
+        image: "/products/cherry-song.jpg",
+        name: "Cherry Blossom",
+        artist: "Taein Song",
+        specialty: "South Korean painter",
+        year: "2025",
+        description:
+          "Hand-painted by the artist in Paris. An acrylic floral ornament — white for winter snow, pink for the sakura of spring, soft green for summer. The spirit of Hanami.",
+        notes: ["rose", "green tea", "jasmine"],
+        price: "790 €",
+        edition: "3 534 pieces",
+        volume: "125 ml + 30 ml",
+      },
+      {
+        id: "cherry-swarovski",
+        image: "/products/cherry-swarovski.jpg",
+        name: "Cherry Blossom",
+        artist: "Swarovski",
+        specialty: "Crystal mastery since 1895",
+        year: "2026",
+        description:
+          "A glittering adornment of intense fuchsia petals, finished with a satin cord and combed barbiche — the Swarovski crystal savoir-faire at its most luminous.",
+        notesPyramid: [
+          { tier: "Top", items: ["bergamot", "green tea"] },
+          { tier: "Heart", items: ["sakura", "powdery lilac", "jasmine"] },
+          { tier: "Base", items: ["white musks"] },
+        ],
+        price: "790 €",
+        edition: "2 030 pieces",
+        volume: "125 ml + 30 ml",
+      },
+    ],
+  },
+];

@@ -1,0 +1,114 @@
+.closing {
+  position: relative;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: clamp(2rem, 6vh, 6rem) var(--page-x);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.glow {
+  position: absolute;
+  bottom: -30%;
+  left: 50%;
+  width: min(120vw, 1000px);
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(201, 169, 110, 0.16),
+    rgba(201, 169, 110, 0.04) 34%,
+    transparent 62%
+  );
+  filter: blur(10px);
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.emblem {
+  width: clamp(40px, 5vw, 60px);
+  height: auto;
+  color: var(--gold);
+  margin-bottom: clamp(2rem, 5vh, 3.4rem);
+}
+
+.eyebrow {
+  margin-bottom: clamp(1.6rem, 4vh, 2.6rem);
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: clamp(3rem, 11vw, 10rem);
+  line-height: 0.9;
+  letter-spacing: 0.16em;
+  /* optical balance for the heavy tracking */
+  padding-left: 0.16em;
+  color: var(--text);
+}
+
+.paris {
+  margin-top: clamp(0.6rem, 1.5vh, 1rem);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(1.4rem, 3vw, 2.6rem);
+  letter-spacing: 0.1em;
+  color: var(--gold);
+}
+
+.rule {
+  width: clamp(70px, 12vw, 160px);
+  height: 1px;
+  margin: clamp(2.2rem, 5vh, 3.4rem) 0;
+  background: linear-gradient(90deg, transparent, var(--gold) 50%, transparent);
+  transform-origin: center;
+}
+
+.tagline {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(1.2rem, 2.4vw, 2rem);
+  color: var(--text-dim);
+  max-width: 30ch;
+}
+
+.foot {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 var(--page-x) clamp(1.6rem, 4vh, 2.6rem);
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+@media (max-width: 640px) {
+  .foot {
+    justify-content: center;
+    gap: 1.5rem;
+    text-align: center;
+    flex-direction: column;
+  }
+}

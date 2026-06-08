@@ -1,0 +1,76 @@
+.nav {
+  position: fixed;
+  right: clamp(1.2rem, 2vw, 2.6rem);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 50;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1.05rem;
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.85rem;
+  color: var(--text-faint);
+  transition: color 0.4s var(--ease-lux);
+}
+
+.label {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.6rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: inherit;
+  opacity: 0;
+  transform: translateX(8px);
+  transition:
+    opacity 0.4s var(--ease-lux),
+    transform 0.4s var(--ease-lux);
+}
+
+.tick {
+  width: 20px;
+  height: 1px;
+  background: currentColor;
+  transition:
+    width 0.4s var(--ease-lux),
+    background-color 0.4s var(--ease-lux);
+}
+
+.item:hover {
+  color: var(--text);
+}
+.item:hover .label {
+  opacity: 1;
+  transform: translateX(0);
+}
+.item:hover .tick {
+  width: 32px;
+  background: var(--gold);
+}
+
+/* Current section is indicated by the gilded tick only — the label stays
+   reserved for hover, so no item is ever "stuck" open. */
+.active {
+  color: var(--gold);
+}
+.active .tick {
+  width: 36px;
+  background: var(--gold);
+}
+
+@media (max-width: 1024px) {
+  .nav {
+    display: none;
+  }
+}

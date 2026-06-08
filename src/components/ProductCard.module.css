@@ -1,0 +1,316 @@
+.card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: clamp(2.5rem, 5vw, 6rem);
+}
+
+.reverse .visual {
+  order: 2;
+}
+.reverse .body {
+  order: 1;
+}
+
+/* — Placeholder visual ————————————————————————————— */
+.visual {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: linear-gradient(155deg, #151515 0%, #0b0b0b 55%, #080808 100%);
+  will-change: transform;
+  transition:
+    transform 0.6s var(--ease-lux),
+    border-color 0.6s var(--ease-lux),
+    box-shadow 0.6s var(--ease-lux);
+}
+
+.visual:hover {
+  transform: scale(1.02);
+  border-color: var(--gold-40);
+  box-shadow:
+    0 40px 90px -50px rgba(201, 169, 110, 0.45),
+    inset 0 0 70px rgba(201, 169, 110, 0.06);
+}
+
+.visualInner {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -10%;
+  height: 120%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform;
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Lift the photo subtly on hover, in concert with the frame. */
+.visual:hover .photo {
+  transform: scale(1.03);
+  transition: transform 0.9s var(--ease-lux);
+}
+
+.watermark {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 84%;
+  text-align: center;
+  font-family: var(--font-display);
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: clamp(2rem, 5vw, 4.2rem);
+  line-height: 0.98;
+  letter-spacing: 0.02em;
+  color: var(--text-ghost);
+  user-select: none;
+}
+
+.emblemWrap {
+  position: relative;
+  z-index: 1;
+}
+
+.emblem {
+  width: clamp(46px, 6vw, 78px);
+  height: auto;
+  color: var(--gold-40);
+}
+
+.frameLabel {
+  position: absolute;
+  z-index: 2;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.56rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.labelTop {
+  top: clamp(1rem, 2vw, 1.6rem);
+  left: clamp(1rem, 2vw, 1.6rem);
+}
+.labelTopRight {
+  top: clamp(1rem, 2vw, 1.6rem);
+  right: clamp(1rem, 2vw, 1.6rem);
+  font-variant-numeric: tabular-nums;
+}
+.labelBottom {
+  bottom: clamp(1rem, 2vw, 1.6rem);
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--gold);
+}
+
+.placeholderNote {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  top: 62%;
+  transform: translateX(-50%);
+  font-family: var(--font-body);
+  font-size: 0.54rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  white-space: nowrap;
+}
+
+/* — Copy ——————————————————————————————————— */
+.body {
+  max-width: 38rem;
+}
+
+.bodyHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: clamp(1.1rem, 2.5vh, 1.8rem);
+}
+
+.artist {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.year {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  color: var(--text-faint);
+  font-variant-numeric: tabular-nums;
+}
+
+.name {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.9rem, 3.4vw, 3.1rem);
+  line-height: 1.04;
+  color: var(--text);
+}
+
+.specialty {
+  margin-top: 0.55rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(1rem, 1.6vw, 1.35rem);
+  color: var(--gold);
+}
+
+.description {
+  margin-top: clamp(1.2rem, 2.5vh, 1.8rem);
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: clamp(0.95rem, 0.8vw, 1.05rem);
+  line-height: 1.75;
+  color: var(--text-dim);
+  max-width: 46ch;
+}
+
+/* — Notes ——————————————————————————————————— */
+.notes {
+  margin-top: clamp(1.6rem, 3vh, 2.2rem);
+}
+
+.notesLabel {
+  display: block;
+  margin-bottom: 0.9rem;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.6rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.noteList {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.15rem 0.55rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.05rem, 1.6vw, 1.4rem);
+  color: var(--text);
+}
+.note {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.55rem;
+}
+.sep {
+  color: var(--gold);
+}
+
+.pyramid {
+  display: grid;
+  gap: 0.7rem;
+}
+.tier {
+  display: flex;
+  align-items: baseline;
+  gap: 1.2rem;
+}
+.tierLabel {
+  flex-shrink: 0;
+  min-width: 3.4rem;
+  font-family: var(--font-body);
+  font-size: 0.58rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.tierItems {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1rem, 1.5vw, 1.3rem);
+  color: var(--text);
+}
+
+/* — Meta ——————————————————————————————————— */
+.meta {
+  margin-top: clamp(1.8rem, 3.5vh, 2.6rem);
+  width: 100%;
+  max-width: 30rem;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.metaRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 0.95rem 0;
+  border-top: 1px solid var(--line-soft);
+}
+
+.metaLabel {
+  flex-shrink: 0;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.62rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.metaValue {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--text-dim);
+  text-align: right;
+}
+
+.price {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
+  letter-spacing: 0.015em;
+  line-height: 1;
+  color: var(--gold-bright);
+  font-variant-numeric: tabular-nums;
+}
+
+/* — Responsive ———————————————————————————————— */
+@media (max-width: 900px) {
+  .card {
+    grid-template-columns: 1fr;
+    gap: 2.4rem;
+  }
+  .reverse .visual,
+  .visual {
+    order: 0;
+  }
+  .reverse .body,
+  .body {
+    order: 1;
+    max-width: none;
+  }
+  .visual {
+    width: 100%;
+    max-width: 460px;
+    margin-inline: auto;
+  }
+}

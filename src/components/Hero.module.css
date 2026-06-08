@@ -1,0 +1,194 @@
+.hero {
+  position: relative;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  /* Extra bottom reserve so the centred block never reaches the scroll cue
+     on shorter (sub-1080) viewports. */
+  padding: clamp(2rem, 6vh, 5rem) var(--page-x) clamp(7rem, 17vh, 11rem);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Soft breathing gold light behind the title */
+.glow {
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  width: min(120vw, 1100px);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(201, 169, 110, 0.2),
+    rgba(201, 169, 110, 0.05) 32%,
+    transparent 60%
+  );
+  filter: blur(10px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Edge vignette to focus the centre */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 50% 48%,
+    transparent 40%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.eyebrow {
+  margin-bottom: clamp(1.5rem, 4vh, 3rem);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: clamp(2.6rem, 10vw, 10.5rem);
+  line-height: 0.9;
+  letter-spacing: 0.01em;
+  color: var(--text);
+}
+
+.line {
+  display: block;
+  /* nowrap: SplitText turns each glyph into an inline-block, which would
+     otherwise let a single word break mid-way. Keep each word intact. */
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 0.1em 0.14em;
+  margin: -0.1em -0.14em;
+}
+
+/* Editorial contrast: the second word turns to a slender italic */
+.line:last-child {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--gold-bright);
+}
+
+.char {
+  display: inline-block;
+  will-change: transform, filter, opacity;
+}
+
+.rule {
+  width: clamp(70px, 13vw, 200px);
+  height: 1px;
+  margin: clamp(1.6rem, 4vh, 2.8rem) 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--gold) 50%,
+    transparent
+  );
+  transform-origin: center;
+}
+
+.subtitle {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: clamp(0.72rem, 0.5vw + 0.6rem, 0.92rem);
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  padding-left: 0.36em; /* optical balance for the tracking */
+}
+
+.dot {
+  color: var(--gold);
+  margin: 0 0.2em;
+}
+
+/* — Bottom bar ———————————————————————————————— */
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 0 var(--page-x) clamp(1.6rem, 4vh, 2.6rem);
+}
+
+.footerItem {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.62rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.scrollCue {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+  color: var(--text-dim);
+  transition: color 0.4s var(--ease-lux);
+}
+.scrollCue:hover {
+  color: var(--gold);
+}
+
+.scrollTrack {
+  position: relative;
+  width: 1px;
+  height: 56px;
+  background: var(--line);
+  overflow: hidden;
+}
+
+.scrollDot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 16px;
+  background: var(--gold);
+  animation: scroll-fall 2.4s var(--ease-lux) infinite;
+}
+
+@keyframes scroll-fall {
+  0% {
+    transform: translateY(-16px);
+    opacity: 0;
+  }
+  35% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(56px);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer {
+    justify-content: center;
+  }
+  .footerItem:not(.scrollCue) {
+    display: none;
+  }
+}

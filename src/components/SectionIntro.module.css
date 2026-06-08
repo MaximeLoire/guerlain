@@ -1,0 +1,51 @@
+.intro {
+  position: relative;
+  min-height: 78vh;
+  display: flex;
+  align-items: center;
+  padding: var(--section-y) var(--page-x);
+}
+
+/* Asymmetric: the statement sits left, with deliberate white space at right */
+.block {
+  max-width: 30ch;
+  margin-right: auto;
+  margin-left: clamp(0rem, 6vw, 9rem);
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 1.8rem;
+}
+
+.rule {
+  width: clamp(60px, 8vw, 120px);
+  height: 1px;
+  margin-bottom: clamp(2rem, 5vh, 3.4rem);
+  background: var(--gold);
+  transform-origin: left center;
+}
+
+.copy {
+  font-family: var(--font-display);
+  font-weight: 400;
+}
+
+.copyLine {
+  display: block;
+  color: var(--text-dim);
+  font-size: clamp(1.2rem, 2vw, 1.85rem);
+  line-height: 1.35;
+}
+
+.copyLine + .copyLine {
+  margin-top: 0.85rem;
+}
+
+.lead {
+  color: var(--text);
+  font-size: clamp(2rem, 4.4vw, 3.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.005em;
+  margin-bottom: 1.4rem;
+}

@@ -1,0 +1,140 @@
+# Decap CMS — Guerlain PEX
+# Authentification via Netlify Identity + Git Gateway
+# Activer dans Netlify : Settings → Identity → Enable
+#                        Settings → Identity → Services → Git Gateway → Enable
+
+backend:
+  name: git-gateway
+  branch: main
+
+# Dossier de stockage des images uploadées
+media_folder: public/products
+public_folder: /products
+
+# Pour tester en local : npx netlify-cms-proxy-server (décommenter la ligne ci-dessous)
+# local_backend: true
+
+collections:
+  - name: regions
+    label: "Régions"
+    files:
+
+      # ─── BANGKOK ────────────────────────────────────────────────────────────
+      - name: bangkok
+        label: "Bangkok"
+        file: src/content/regions/bangkok.json
+        fields: &region_fields
+
+          - label: "Nom de la région"
+            name: region
+            widget: string
+
+          # ── Navigation ──────────────────────────────────────────────────────
+          - label: "Navigation"
+            name: nav
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "Label ouverture", name: opening, widget: string }
+              - { label: "Label collection", name: collection, widget: string }
+              - { label: "Label closing", name: closing, widget: string }
+
+          # ── Hero ─────────────────────────────────────────────────────────────
+          - label: "Section d'ouverture (Hero)"
+            name: hero
+            widget: object
+            fields:
+              - { label: "Mention en-tête", name: eyebrow, widget: string, hint: "Ex : Maison Guerlain — Paris" }
+              - { label: "Titre — ligne 1", name: title1, widget: string, hint: "Ex : Exceptional" }
+              - { label: "Titre — ligne 2 (italique)", name: title2, widget: string, hint: "Ex : Piece" }
+              - { label: "Événement", name: event, widget: string, hint: "Ex : PEX Bangkok" }
+              - { label: "Année", name: year, widget: string }
+              - { label: "Mention pied de page (gauche)", name: tagline, widget: string, hint: "Ex : By Invitation Only" }
+              - { label: "Mention pied de page (droite)", name: footer_right, widget: string, hint: "Ex : Private Viewing" }
+
+          # ── Introduction ─────────────────────────────────────────────────────
+          - label: "Section introduction"
+            name: intro
+            widget: object
+            fields:
+              - { label: "Chapeau", name: eyebrow, widget: string }
+              - label: "Paragraphes"
+                name: lines
+                widget: list
+                hint: "Chaque ligne est un paragraphe distinct affiché à l'écran."
+                field:
+                  label: "Paragraphe"
+                  name: line
+                  widget: text
+
+          # ── Closing ──────────────────────────────────────────────────────────
+          - label: "Section de clôture"
+            name: closing
+            widget: object
+            fields:
+              - { label: "Chapeau", name: eyebrow, widget: string }
+              - { label: "Titre principal", name: heading, widget: string }
+              - { label: "Sous-titre", name: subheading, widget: string }
+              - { label: "Tagline", name: tagline, widget: string }
+              - { label: "Pied de page (gauche)", name: footer_left, widget: string }
+              - { label: "Pied de page (droite)", name: footer_right, widget: string }
+
+          # ── Familles de parfums ──────────────────────────────────────────────
+          - label: "Familles de parfums"
+            name: families
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "Identifiant (sans espace ni accent)", name: id, widget: string, hint: "Ex : shalimar, bee-bottle. Ne pas modifier sans raison." }
+              - { label: "Numéro", name: index, widget: number }
+              - { label: "Nom de la famille", name: name, widget: string }
+              - { label: "Accroche", name: tagline, widget: string }
+              - label: "Produits"
+                name: products
+                widget: list
+                summary: "{{fields.name}} — {{fields.artist}}"
+                fields:
+                  - { label: "Identifiant (sans espace ni accent)", name: id, widget: string, hint: "Doit correspondre au nom du fichier image. Ex : shalimar-100" }
+                  - label: "Photo produit"
+                    name: image
+                    widget: image
+                    required: false
+                    hint: "Glisser-déposer une image JPG. Sera affichée à gauche de la fiche produit."
+                  - { label: "Nom du produit", name: name, widget: string }
+                  - { label: "Artiste / Maison", name: artist, widget: string }
+                  - { label: "Spécialité de l'artiste", name: specialty, widget: string, required: false }
+                  - { label: "Année de création", name: year, widget: string }
+                  - { label: "Description", name: description, widget: text }
+                  - label: "Notes olfactives"
+                    name: notes
+                    widget: list
+                    required: false
+                    hint: "Laisser vide si aucune note à afficher."
+                    field:
+                      label: "Note"
+                      name: note
+                      widget: string
+                  - label: "Notes olfactives — pyramide (Top / Heart / Base)"
+                    name: notesPyramid
+                    widget: list
+                    required: false
+                    hint: "Utiliser uniquement si les notes doivent être organisées en pyramide. Sinon, utiliser le champ 'Notes olfactives' ci-dessus."
+                    summary: "{{fields.tier}}"
+                    fields:
+                      - { label: "Niveau (Top / Heart / Base)", name: tier, widget: string }
+                      - label: "Notes"
+                        name: items
+                        widget: list
+                        field:
+                          label: "Note"
+                          name: item
+                          widget: string
+                  - { label: "Prix", name: price, widget: string, required: false, hint: "Ex : 20 000 €" }
+                  - { label: "Édition", name: edition, widget: string, required: false, hint: "Ex : 66 pieces worldwide" }
+                  - { label: "Volume", name: volume, widget: string, required: false, hint: "Ex : 125 ml + 30 ml" }
+
+      # ─── Pour ajouter une nouvelle région, dupliquer le bloc ci-dessous ─────
+      # - name: singapore
+      #   label: "Singapour"
+      #   file: src/content/regions/singapore.json
+      #   fields: *region_fields

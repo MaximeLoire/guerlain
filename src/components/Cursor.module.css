@@ -1,0 +1,30 @@
+.dot,
+.ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  will-change: transform;
+  border-radius: 50%;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  background: var(--gold-bright);
+  box-shadow: 0 0 10px rgba(201, 169, 110, 0.5);
+}
+
+.ring {
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--gold-40);
+}
+
+@media (hover: none), (pointer: coarse) {
+  .dot,
+  .ring {
+    display: none;
+  }
+}
