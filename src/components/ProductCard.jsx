@@ -147,7 +147,7 @@ export default function ProductCard({ product, reverse }) {
         <dl className={styles.meta} data-stagger>
           {product.price && (
             <div className={styles.metaRow}>
-              <dt className={styles.metaLabel}>Price</dt>
+              <dt className={styles.metaLabel}>Value</dt>
               <dd className={styles.price}>{product.price}</dd>
             </div>
           )}
